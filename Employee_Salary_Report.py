@@ -1,3 +1,33 @@
+# Smart Billing System - Calculates total with GST and discount
+
+def Smart_Billing_System(name, qty, price):
+    total = qty * price
+    gst = total * 0.05  # 5% GST
+    if total >= 1000 :
+        discount = total * 0.10 
+        final=total+gst-discount
+    else:
+        0  # 10% discount if eligible
+    return total, gst, discount, final
+
+# List of purchased items
+items = [
+    ("Laptop Bag", 2, 750),
+    ("Wireless Mouse", 3, 400),
+    ("Notebook", 5, 100),
+    ("Pen Drive", 1, 900)
+]
+
+# Print individual bill summary
+for name, qty, price in items:
+    total, gst, discount, final = Smart_Billing_System(name, qty, price)
+    print(f"\nItem: {name}")
+    print(f"Total: ₹{total}")
+    print(f"GST (5%): ₹{gst}")
+    print(f"Discount: ₹{discount}")
+    print(f"Final Amount: ₹{final}")
+
+    #code example
 def  Employee_Salary_Report(emp_name,base_salary,bonus,deduction):
     final_salary=base_salary+bonus-deduction
     return emp_name,base_salary,bonus,deduction,final_salary
